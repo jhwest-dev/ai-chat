@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI chat</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <!-- ASIDE : 채팅 목록 사이드바 -->
+    <aside class="chat-history-sidebar" id="chatHistorySidebar" aria-label="채팅 목록" aria-hidden="true">
+        
+        <div class="sidebar-header">
+            <button class="new-chat-btn" id="newChatBtn" aria-label="New 채팅 버튼">+ New Chat</button>
+            <button class="chat-history-close-btn" id="chatHistoryCloseBtn" aria-label="채팅 목록 닫기">✖️</button>
+        </div>
+
+        <!-- 채팅 히스토리 목록 - JS가 이전 채팅 목록을 여기에 렌더링 -->
+        <div class="sidebar-body">
+            <p class="chat-history-title">최근 대화</p>
+            <div class="chat-history-items" id="chatItems">
+                <p class="chat-empty">이전 대화가 없습니다</p>
+            </div>
+        </div>
+
+        <!-- 사이드바 footer -->
+        <div class="sidebar-footer">
+            <p class="footer-icon">❤️</p>
+            <button class="user-settings-btn" id="userSettingsBtn" disabled>사용자 설정</button>
+        </div>
+    </aside>
+    <!-- 사이드바 오버레이 반투명 배경 -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+</body>
+</html>
