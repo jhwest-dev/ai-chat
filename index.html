@@ -7,12 +7,70 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+    <!-- header : 로고 + 텍스트-->
+    <header class="main-header">
+        <div class="header-inner">
+            <div class="logo">
+                <span class="logo-icon">✨</span>
+                <span class="logo-text">AI Assistant</span>
+            </div>
+            <div class="desc">
+                <p class="logo-desc">무엇이든 물어보세요</p>
+            </div>
+        </div>
+
+        <!-- 사이드바 버튼 (JS로 토글) -->
+        <button class="chat-history-open-btn" id="chatHistoryOpenBtn" aria-label="채팅 목록 열기">🫧채팅 목록 열기</button>
+    </header>
+
+    <!-- MAIN 페이지 핵심 콘텐트 -->
+    <main>
+        <!-- Prompt Section : 필터 탭 + 프롬프트 그리드 -->
+        <section class="prompt-section" id="promptSection">
+            <div class="section-inner">
+                <p class="section-title">프롬프트 템플릿</p>
+
+                <!-- 프롬프트 필터 탭 -->
+                <!-- data-category: JS에서 클릭 이벤트 처리 시 사용 -->
+                <div class="filter-tabs" role="tablist" aria-label="프롬프트 카테고리">
+                    <button class="filter-btn active" data-category="all" role="tab">전체</button>
+                    <button class="filter-btn" data-category="development" role="tab">💻개발</button>
+                    <button class="filter-btn" data-category="design" role="tab">🎨디자인</button>
+                    <button class="filter-btn" data-category="writing" role="tab">✍️글쓰기</button>
+                    <button class="filter-btn" data-category="translation" role="tab">🌐번역</button>
+                </div>
+
+                <!-- 프롬프트 카드 그리드 : JS가 동적으로 채움 -->
+                <div class="prompt-grid" id="promptGrid" role="list"></div>
+                <!-- app.js가 여기에 <article> 카드들을 생성 -->
+            </div>
+        </section>
+
+        <!-- 채팅 섹션 -->
+        <section class="chat-section" id="chatSection">
+
+        </section>
+
+        <!-- 사용자 질문 섹션 -->
+        <section class="question-section" id="questionSection">
+            <div class="section-inner">
+                <form class="question-form" id="questionForm" novalidate>
+                    <input type="text" class="question-input" id="questionInput" placeholder="질문을 입력하세요" aria-label="질문" required />  
+                    <button type="submit" class="questionBtn">⬆️</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
     <!-- ASIDE : 채팅 목록 사이드바 -->
     <aside class="chat-history-sidebar" id="chatHistorySidebar" aria-label="채팅 목록" aria-hidden="true">
         
         <div class="sidebar-header">
             <button class="new-chat-btn" id="newChatBtn" aria-label="New 채팅 버튼">+ New Chat</button>
             <button class="chat-history-close-btn" id="chatHistoryCloseBtn" aria-label="채팅 목록 닫기">✖️</button>
+            <div class="chat-history-search" >
+                <input type="text" placeholder="대화 목록 검색...">
+            </div>
         </div>
 
         <!-- 채팅 히스토리 목록 - JS가 이전 채팅 목록을 여기에 렌더링 -->
